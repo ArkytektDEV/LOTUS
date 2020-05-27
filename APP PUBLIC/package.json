@@ -1,0 +1,61 @@
+{
+  "name": "lotus",
+  "version": "0.1.2",
+  "description": "A DAW by artists for artists.",
+  "main": "lotus.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder",
+    "distmac": "electron-builder -m",
+    "distwin32": "electron-builder --ia32",
+    "distwin64": "electron-builder --x64",
+    "distlin": "electron-builder -l",
+    "buildneon": "electron-build-env neon build --release lotus-module",
+    "build": "electron-builder build --win --publish never",
+    "deploy": "electron-builder build --win --publish always"
+  },
+  "build": {
+    "appId": "net.lotus.daw",
+    "productName": "Lotus",
+    "artifactName": "${productName} ${version}.${ext}",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    }
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/LOTUS-LABS-LLC/LOTUS-LABS-DAW.git"
+  },
+  "author": "Anthony Bath",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
+    "bootstrap": "^4.3.1",
+    "chalk": "^2.4.2",
+    "chart.js": "^2.9.3",
+    "clamp": "^1.0.1",
+    "crypto-js": "^4.0.0",
+    "discord-rpc": "^3.1.0",
+    "electron-build-env": "^0.2.0",
+    "electron-updater": "^4.2.5",
+    "jquery": "^3.4.1",
+    "lotus-module": "file:./lotus-module",
+    "neon": "^2.0.0",
+    "os-utils": "0.0.14",
+    "popper.js": "^1.16.0",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "electron": "^7.1.12",
+    "electron-builder": "^22.3.2",
+    "neon-cli": "^0.3.3"
+  }
+}
